@@ -1,0 +1,108 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-tile">
+          <img src="/assets/ips-logo.png" alt="Innovative People Solutions" width="132" />
+        </div>
+        <p class="footer-tagline">
+          Your end-to-end HR &amp; Talent partner. People are the strategy.
+        </p>
+      </div>
+      <div>
+        <div class="footer-heading">Explore</div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/services">Services</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">Contact</div>
+        <div class="footer-links">
+          <a href="mailto:sheerly@theips.us">sheerly@theips.us</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; {year} Innovative People Solutions. All rights reserved.</span>
+      <span>HR &amp; Talent, end to end.</span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--green-deep);
+    color: var(--footer-text);
+  }
+  .footer-inner {
+    padding: 64px 40px 40px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 48px;
+    padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .logo-tile {
+    display: inline-flex;
+    background: var(--greige);
+    border-radius: 6px;
+    padding: 14px;
+    margin-bottom: 20px;
+  }
+  .footer-tagline {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--footer-muted);
+    font-weight: 300;
+    max-width: 300px;
+  }
+  .footer-heading {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 18px;
+  }
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .footer-links a {
+    font-size: 14.5px;
+    color: var(--footer-text);
+    font-weight: 300;
+  }
+  .footer-links a:hover {
+    color: var(--bg);
+  }
+  .footer-bottom {
+    padding-top: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 12.5px;
+    color: var(--footer-muted-2);
+  }
+
+  @media (max-width: 860px) {
+    .footer-inner {
+      padding: 48px 24px 28px;
+    }
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+  }
+</style>

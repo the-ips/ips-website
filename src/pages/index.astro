@@ -1,0 +1,327 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Placeholder from '../components/Placeholder.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ClientLogo from '../components/ClientLogo.astro';
+import { services, clients } from '../data/content';
+
+const servicesPreview = services.slice(0, 6);
+---
+
+<Layout title="Home" description="Innovative People Solutions — your end-to-end HR & Talent partner. People are the strategy.">
+  <!-- HERO -->
+  <section class="container hero">
+    <div>
+      <div class="eyebrow">
+        <span class="eyebrow-rule"></span>
+        <span class="eyebrow-label">HR &amp; Talent Partners</span>
+      </div>
+      <h1 class="hero-h1">People are<br />the strategy.</h1>
+      <p class="hero-sub">
+        Innovative People Solutions is your end-to-end HR &amp; Talent partner — from
+        compliance and payroll to coaching, culture, and recruiting. We build the
+        people infrastructure that lets your business grow.
+      </p>
+      <div class="hero-ctas">
+        <a href="/contact" class="btn">Book a Consultation</a>
+        <a href="/services" class="link-arrow">Explore Services →</a>
+      </div>
+    </div>
+    <Placeholder caption="team / office photo" aspect="4 / 5" />
+  </section>
+
+  <!-- STAT STRIP -->
+  <section class="stat-strip">
+    <div class="container stat-grid">
+      <div class="stat">
+        <div class="stat-num">End-to-end</div>
+        <div class="stat-label">HR &amp; Talent coverage</div>
+      </div>
+      <div class="stat stat-divided">
+        <div class="stat-num">Dedicated</div>
+        <div class="stat-label">partners, not a portal</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">Scalable</div>
+        <div class="stat-label">from startup to scale-up</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="container services-preview">
+    <div class="section-head">
+      <div>
+        <span class="eyebrow-label">What we do</span>
+        <h2 class="section-h2">Everything people ops,<br />under one roof.</h2>
+      </div>
+      <a href="/services" class="link-arrow nowrap">All services →</a>
+    </div>
+    <div class="service-grid">
+      {servicesPreview.map((s) => (
+        <ServiceCard num={s.num} title={s.title} blurb={s.blurb} variant="preview" />
+      ))}
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section class="clients-band">
+    <div class="container clients-inner">
+      <span class="eyebrow-label">Trusted by teams at</span>
+      <div class="clients-row">
+        {clients.map((c) => (
+          <ClientLogo name={c.name} src={c.src} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- APPROACH -->
+  <section class="container approach">
+    <Placeholder caption="candid team photo" aspect="1 / 1" />
+    <div>
+      <span class="eyebrow-label">Our approach</span>
+      <h2 class="section-h2 approach-h2">A boutique team<br />with enterprise range.</h2>
+      <p class="approach-p">
+        We embed with your leadership as true partners — learning your business, your
+        people, and your goals before we recommend a thing. You get senior HR
+        expertise without the overhead of building a department from scratch.
+      </p>
+      <a href="/about" class="link-arrow approach-link">Meet the team →</a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="cta-inner">
+      <h2 class="cta-h2">Let's build your people strategy.</h2>
+      <p class="cta-p">
+        Book a free consultation and we'll map out where IPS can make the biggest
+        difference for your team.
+      </p>
+      <a href="/contact" class="btn cta-btn">Book a Consultation</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    padding: 96px 40px 80px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .hero-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 76px;
+    line-height: 1.02;
+    letter-spacing: -1px;
+    color: var(--green-deep);
+  }
+  .hero-sub {
+    margin-top: 28px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-body);
+    max-width: 440px;
+    font-weight: 300;
+  }
+  .hero-ctas {
+    margin-top: 38px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .stat-strip {
+    border-top: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--hairline);
+    background: var(--tint);
+  }
+  .stat-grid {
+    padding: 44px 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .stat {
+    text-align: center;
+  }
+  .stat-divided {
+    border-left: 1px solid var(--hairline);
+    border-right: 1px solid var(--hairline);
+  }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    color: var(--green);
+    line-height: 1;
+  }
+  .stat-label {
+    margin-top: 8px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .services-preview {
+    padding: 96px 40px;
+  }
+  .section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 52px;
+    flex-wrap: wrap;
+  }
+  .section-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 52px;
+    line-height: 1.05;
+    color: var(--green-deep);
+    margin-top: 14px;
+  }
+  .nowrap {
+    white-space: nowrap;
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+
+  .clients-band {
+    background: var(--green-deep);
+    color: #e9e7db;
+  }
+  .clients-inner {
+    padding: 74px 40px;
+    text-align: center;
+  }
+  .clients-inner .eyebrow-label {
+    color: var(--footer-muted);
+  }
+  .clients-row {
+    margin-top: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+  }
+
+  .approach {
+    padding: 96px 40px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .approach-h2 {
+    font-size: 48px;
+    line-height: 1.08;
+  }
+  .approach-p {
+    margin-top: 22px;
+    font-size: 16.5px;
+    line-height: 1.75;
+    color: var(--text-body);
+    font-weight: 300;
+    max-width: 500px;
+  }
+  .approach-link {
+    margin-top: 30px;
+    display: inline-block;
+  }
+
+  .cta-band {
+    background: var(--tint);
+    border-top: 1px solid var(--hairline);
+  }
+  .cta-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 96px 40px;
+    text-align: center;
+  }
+  .cta-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 56px;
+    line-height: 1.05;
+    color: var(--green-deep);
+  }
+  .cta-p {
+    margin-top: 20px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--text-body);
+    font-weight: 300;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-btn {
+    margin-top: 34px;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 48px;
+      padding: 64px 24px 56px;
+    }
+    .hero-h1 {
+      font-size: 52px;
+    }
+    .hero-sub {
+      max-width: 100%;
+    }
+    .stat-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      padding: 36px 24px;
+    }
+    .stat-divided {
+      border-left: none;
+      border-right: none;
+      border-top: 1px solid var(--hairline);
+      border-bottom: 1px solid var(--hairline);
+      padding: 20px 0;
+    }
+    .services-preview {
+      padding: 64px 24px;
+    }
+    .section-h2 {
+      font-size: 38px;
+    }
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+    .clients-inner {
+      padding: 56px 24px;
+    }
+    .approach {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 64px 24px;
+    }
+    .approach-h2 {
+      font-size: 36px;
+    }
+    .cta-inner {
+      padding: 64px 24px;
+    }
+    .cta-h2 {
+      font-size: 38px;
+    }
+  }
+</style>

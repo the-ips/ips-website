@@ -1,0 +1,91 @@
+---
+interface Props {
+  num: string;
+  title: string;
+  blurb: string;
+  variant?: 'preview' | 'full';
+}
+
+const { num, title, blurb, variant = 'preview' } = Astro.props;
+---
+
+<div class:list={['service-card', variant]}>
+  <span class="service-num">{num}</span>
+  <div class="service-body">
+    <h3 class="service-title">{title}</h3>
+    <p class="service-blurb">{blurb}</p>
+  </div>
+</div>
+
+<style>
+  .service-card {
+    background: var(--bg);
+    transition: background 0.2s;
+  }
+  .service-card:hover {
+    background: var(--card);
+  }
+
+  .service-card.preview {
+    padding: 34px 30px;
+    min-height: 190px;
+    display: flex;
+    flex-direction: column;
+  }
+  .service-card.preview .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--sage);
+  }
+  .service-card.preview .service-body {
+    margin-top: 14px;
+  }
+  .service-card.preview .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 26px;
+    color: var(--green-deep);
+  }
+  .service-card.preview .service-blurb {
+    margin-top: 10px;
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--text-body);
+    font-weight: 300;
+  }
+
+  .service-card.full {
+    padding: 44px 40px;
+    display: flex;
+    gap: 26px;
+  }
+  .service-card.full .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    color: var(--sage);
+    line-height: 1;
+  }
+  .service-card.full .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 30px;
+    color: var(--green-deep);
+  }
+  .service-card.full .service-blurb {
+    margin-top: 12px;
+    font-size: 15.5px;
+    line-height: 1.7;
+    color: var(--text-body);
+    font-weight: 300;
+  }
+
+  @media (max-width: 640px) {
+    .service-card.full {
+      padding: 30px 24px;
+      gap: 18px;
+    }
+    .service-card.preview {
+      padding: 28px 22px;
+    }
+  }
+</style>

@@ -1,0 +1,118 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import { services } from '../data/content';
+---
+
+<Layout title="Services" description="End-to-end HR & Talent services, tailored to your stage.">
+  <section class="container services-head">
+    <div class="eyebrow">
+      <span class="eyebrow-rule"></span>
+      <span class="eyebrow-label">Services</span>
+    </div>
+    <h1 class="services-h1">End-to-end HR &amp; Talent, tailored to your stage.</h1>
+    <p class="services-sub">
+      Pick a single service or hand us the whole function. Either way, you get senior
+      expertise and systems that scale with you.
+    </p>
+  </section>
+
+  <section class="container services-grid-wrap">
+    <div class="service-grid">
+      {services.map((s) => (
+        <ServiceCard num={s.num} title={s.title} blurb={s.blurb} variant="full" />
+      ))}
+    </div>
+  </section>
+
+  <section class="services-cta">
+    <div class="services-cta-inner">
+      <h2 class="services-cta-h2">Not sure where to start?</h2>
+      <p class="services-cta-p">
+        We'll help you prioritize. Book a consultation and we'll build a roadmap
+        together.
+      </p>
+      <a href="/contact" class="btn btn-light services-cta-btn">Book a Consultation</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .services-head {
+    padding: 88px 40px 60px;
+  }
+  .services-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 66px;
+    line-height: 1.03;
+    letter-spacing: -1px;
+    color: var(--green-deep);
+    max-width: 800px;
+  }
+  .services-sub {
+    margin-top: 24px;
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-body);
+    font-weight: 300;
+    max-width: 560px;
+  }
+
+  .services-grid-wrap {
+    padding: 20px 40px 100px;
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+  }
+
+  .services-cta {
+    background: var(--green-deep);
+  }
+  .services-cta-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 84px 40px;
+    text-align: center;
+  }
+  .services-cta-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 46px;
+    color: var(--bg);
+  }
+  .services-cta-p {
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--footer-text);
+    font-weight: 300;
+  }
+  .services-cta-btn {
+    margin-top: 30px;
+  }
+
+  @media (max-width: 900px) {
+    .services-head {
+      padding: 64px 24px 40px;
+    }
+    .services-h1 {
+      font-size: 42px;
+    }
+    .services-grid-wrap {
+      padding: 12px 24px 64px;
+    }
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+    .services-cta-inner {
+      padding: 56px 24px;
+    }
+    .services-cta-h2 {
+      font-size: 32px;
+    }
+  }
+</style>

@@ -1,0 +1,13 @@
+---
+interface Props {
+  caption: string;
+  aspect?: string;
+}
+
+const { caption, aspect = '4 / 5' } = Astro.props;
+---
+
+<div class="placeholder" style={`aspect-ratio: ${aspect};`}>
+  <span class="placeholder-mark">✦</span>
+  <span class="placeholder-caption">{caption}</span>
+</div>

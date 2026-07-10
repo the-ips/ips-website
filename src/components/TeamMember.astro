@@ -1,0 +1,65 @@
+---
+interface Props {
+  initials: string;
+  name: string;
+  role: string;
+  bio: string;
+}
+
+const { initials, name, role, bio } = Astro.props;
+---
+
+<div class="team-member">
+  <div class="team-avatar">
+    <span>{initials}</span>
+  </div>
+  <h3 class="team-name">{name}</h3>
+  <div class="team-role">{role}</div>
+  <p class="team-bio">{bio}</p>
+</div>
+
+<style>
+  .team-member {
+    text-align: center;
+  }
+  .team-avatar {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #dfe4d8;
+    border: 1px solid rgba(58, 77, 60, 0.16);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .team-avatar span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    color: var(--green);
+  }
+  .team-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: var(--green-deep);
+    margin-top: 24px;
+  }
+  .team-role {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-top: 6px;
+  }
+  .team-bio {
+    margin-top: 16px;
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--text-body);
+    font-weight: 300;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>

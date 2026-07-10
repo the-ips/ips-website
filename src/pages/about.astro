@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Placeholder from '../components/Placeholder.astro';
+import ValueCard from '../components/ValueCard.astro';
+import TeamMember from '../components/TeamMember.astro';
+import { values, team } from '../data/content';
+---
+
+<Layout title="About" description="Big-firm expertise, boutique attention — meet the IPS team.">
+  <section class="container about-intro">
+    <div>
+      <div class="eyebrow">
+        <span class="eyebrow-rule"></span>
+        <span class="eyebrow-label">About IPS</span>
+      </div>
+      <h1 class="about-h1">Big-firm expertise, boutique attention.</h1>
+      <p class="about-p">
+        Innovative People Solutions was founded on a simple belief: growing companies
+        deserve a real HR partner, not a help desk. We're a small, senior team that
+        plugs directly into your business — bringing the systems, judgment, and care
+        of a full HR department without the headcount.
+      </p>
+      <p class="about-p">
+        From your first hire to your first audit, we handle the people work so you
+        can focus on the business.
+      </p>
+    </div>
+    <Placeholder caption="founder / team portrait" aspect="4 / 5" />
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-band">
+    <div class="container values-grid">
+      {values.map((v) => (
+        <ValueCard num={v.num} title={v.title} blurb={v.blurb} />
+      ))}
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="container team-section">
+    <div class="team-head">
+      <span class="eyebrow-label">The team</span>
+      <h2 class="team-h2">Three people, deeply invested.</h2>
+    </div>
+    <div class="team-grid">
+      {team.map((m) => (
+        <TeamMember initials={m.initials} name={m.name} role={m.role} bio={m.bio} />
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-intro {
+    padding: 88px 40px 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+  .about-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 60px;
+    line-height: 1.04;
+    letter-spacing: -1px;
+    color: var(--green-deep);
+  }
+  .about-p {
+    margin-top: 24px;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-body);
+    font-weight: 300;
+  }
+  .about-p + .about-p {
+    margin-top: 18px;
+  }
+
+  .values-band {
+    border-top: 1px solid var(--hairline);
+    background: var(--tint);
+  }
+  .values-grid {
+    padding: 74px 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 56px;
+  }
+
+  .team-section {
+    padding: 96px 40px;
+  }
+  .team-head {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+  .team-h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 1.05;
+    color: var(--green-deep);
+    margin-top: 14px;
+  }
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+
+  @media (max-width: 900px) {
+    .about-intro {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 64px 24px 56px;
+    }
+    .about-h1 {
+      font-size: 40px;
+    }
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      padding: 56px 24px;
+    }
+    .team-section {
+      padding: 64px 24px;
+    }
+    .team-h2 {
+      font-size: 34px;
+    }
+    .team-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+</style>

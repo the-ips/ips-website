@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Jost', sans-serif; color: #2b332b; background: #f7f5ed; -webkit-font-smoothing: antialiased; }
+  a { color: #3a4d3c; text-decoration: none; }
+  a:hover { color: #8fa389; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; }
+  ::selection { background: #cdd6c6; }
+</style>
+</helmet>
+<div style="min-height:100vh; display:flex; flex-direction:column; background:#f7f5ed;">
+
+  <!-- NAV -->
+  <header style="position:sticky; top:0; z-index:50; background:rgba(247,245,237,0.88); backdrop-filter:blur(12px); border-bottom:1px solid rgba(58,77,60,0.12);">
+    <nav style="max-width:1240px; margin:0 auto; padding:18px 40px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <button onClick="{{ goHome }}" style="display:flex; align-items:center; gap:14px; text-align:left;">
+        <span style="font-family:'Cormorant Garamond',serif; font-size:34px; font-weight:600; letter-spacing:2px; color:#3a4d3c; line-height:1;">IPS</span>
+        <span style="width:1px; height:30px; background:rgba(58,77,60,0.25);"></span>
+        <span style="font-size:9.5px; letter-spacing:3px; color:#71766a; text-transform:uppercase; line-height:1.5;">Innovative<br>People Solutions</span>
+      </button>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <sc-for list="{{ navItems }}" as="item" hint-placeholder-count="4">
+          <button onClick="{{ item.onClick }}" style="{{ item.style }}">{{ item.label }}</button>
+        </sc-for>
+        <button onClick="{{ goContact }}" style="margin-left:14px; padding:11px 22px; background:#3a4d3c; color:#f7f5ed; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; border-radius:2px; transition:background .2s;" style-hover="background:#2c3a2e;">Book a Consultation</button>
+      </div>
+    </nav>
+  </header>
+
+  <main style="flex:1;">
+
+    <!-- ===================== HOME ===================== -->
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <div>
+      <!-- HERO -->
+      <section style="max-width:1240px; margin:0 auto; padding:96px 40px 80px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:72px; align-items:center;">
+        <div>
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:28px;">
+            <span style="width:34px; height:1px; background:#8fa389;"></span>
+            <span style="font-size:11px; letter-spacing:3.5px; text-transform:uppercase; color:#8fa389;">HR &amp; Talent Partners</span>
+          </div>
+          <h1 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:76px; line-height:1.02; letter-spacing:-1px; color:#2c3a2e;">People are<br>the strategy.</h1>
+          <p style="margin-top:28px; font-size:18px; line-height:1.7; color:#5b6157; max-width:440px; font-weight:300;">Innovative People Solutions is your end-to-end HR &amp; Talent partner — from compliance and payroll to coaching, culture, and recruiting. We build the people infrastructure that lets your business grow.</p>
+          <div style="margin-top:38px; display:flex; align-items:center; gap:20px;">
+            <button onClick="{{ goContact }}" style="padding:15px 30px; background:#3a4d3c; color:#f7f5ed; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; border-radius:2px;" style-hover="background:#2c3a2e;">Book a Consultation</button>
+            <button onClick="{{ goServices }}" style="font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#3a4d3c; border-bottom:1px solid rgba(58,77,60,0.4); padding-bottom:3px;" style-hover="color:#8fa389;">Explore Services →</button>
+          </div>
+        </div>
+        <div style="aspect-ratio:4/5; border-radius:4px; background:repeating-linear-gradient(135deg,#e6e3d7,#e6e3d7 11px,#eceadf 11px,#eceadf 22px); border:1px solid rgba(58,77,60,0.14); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
+          <span style="width:56px; height:56px; border-radius:50%; border:1px solid rgba(58,77,60,0.3); display:flex; align-items:center; justify-content:center; color:#8fa389; font-size:22px;">✦</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1px; color:#8a8d7e;">team / office photo</span>
+        </div>
+      </section>
+
+      <!-- STAT STRIP -->
+      <section style="border-top:1px solid rgba(58,77,60,0.12); border-bottom:1px solid rgba(58,77,60,0.12); background:#f2efe4;">
+        <div style="max-width:1240px; margin:0 auto; padding:44px 40px; display:grid; grid-template-columns:repeat(3,1fr); gap:40px;">
+          <div style="text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:46px; color:#3a4d3c; line-height:1;">End-to-end</div>
+            <div style="margin-top:8px; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#71766a;">HR &amp; Talent coverage</div>
+          </div>
+          <div style="text-align:center; border-left:1px solid rgba(58,77,60,0.12); border-right:1px solid rgba(58,77,60,0.12);">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:46px; color:#3a4d3c; line-height:1;">Dedicated</div>
+            <div style="margin-top:8px; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#71766a;">partners, not a portal</div>
+          </div>
+          <div style="text-align:center;">
+            <div style="font-family:'Cormorant Garamond',serif; font-size:46px; color:#3a4d3c; line-height:1;">Scalable</div>
+            <div style="margin-top:8px; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:#71766a;">from startup to scale-up</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES PREVIEW -->
+      <section style="max-width:1240px; margin:0 auto; padding:96px 40px;">
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:52px;">
+          <div>
+            <span style="font-size:11px; letter-spacing:3.5px; text-transform:uppercase; color:#8fa389;">What we do</span>
+            <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:52px; line-height:1.05; color:#2c3a2e; margin-top:14px;">Everything people ops,<br>under one roof.</h2>
+          </div>
+          <button onClick="{{ goServices }}" style="font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#3a4d3c; border-bottom:1px solid rgba(58,77,60,0.4); padding-bottom:3px; white-space:nowrap;" style-hover="color:#8fa389;">All services →</button>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:rgba(58,77,60,0.12); border:1px solid rgba(58,77,60,0.12);">
+          <sc-for list="{{ servicesPreview }}" as="s" hint-placeholder-count="6">
+            <div style="background:#f7f5ed; padding:34px 30px; min-height:190px; display:flex; flex-direction:column;" style-hover="background:#fdfcf6;">
+              <span style="font-family:'Cormorant Garamond',serif; font-size:24px; color:#8fa389;">{{ s.num }}</span>
+              <h3 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:26px; color:#2c3a2e; margin-top:14px;">{{ s.title }}</h3>
+              <p style="margin-top:10px; font-size:14.5px; line-height:1.65; color:#5b6157; font-weight:300;">{{ s.blurb }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <!-- CLIENTS -->
+      <section style="background:#2c3a2e; color:#e9e7db;">
+        <div style="max-width:1240px; margin:0 auto; padding:74px 40px; text-align:center;">
+          <span style="font-size:11px; letter-spacing:3.5px; text-transform:uppercase; color:#a7b8a0;">Trusted by teams at</span>
+          <div style="margin-top:44px; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:26px;">
+            <sc-for list="{{ clients }}" as="c" hint-placeholder-count="5">
+              <div style="width:180px; height:96px; background:#f7f5ed; border-radius:4px; display:flex; align-items:center; justify-content:center; padding:20px;">
+                <img src="{{ c.src }}" alt="{{ c.name }}" style="max-width:100%; max-height:100%; object-fit:contain;">
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <!-- APPROACH -->
+      <section style="max-width:1240px; margin:0 auto; padding:96px 40px; display:grid; grid-template-columns:0.9fr 1.1fr; gap:72px; align-items:center;">
+        <div style="aspect-ratio:1/1; border-radius:4px; background:repeating-linear-gradient(135deg,#e6e3d7,#e6e3d7 11px,#eceadf 11px,#eceadf 22px); border:1px solid rgba(58,77,60,0.14); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
+          <span style="width:56px; height:56px; border-radius:50%; border:1px solid rgba(58,77,60,0.3); display:flex; align-items:center; justify-content:center; color:#8fa389; font-size:22px;">✦</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1px; color:#8a8d7e;">candid team photo</span>
+        </div>
+        <div>
+          <span style="font-size:11px; letter-spacing:3.5px; text-transform:uppercase; color:#8fa389;">Our approach</span>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:48px; line-height:1.08; color:#2c3a2e; margin-top:14px;">A boutique team<br>with enterprise range.</h2>
+          <p style="margin-top:22px; font-size:16.5px; line-height:1.75; color:#5b6157; font-weight:300; max-width:500px;">We embed with your leadership as true partners — learning your business, your people, and your goals before we recommend a thing. You get senior HR expertise without the overhead of building a department from scratch.</p>
+          <button onClick="{{ goAbout }}" style="margin-top:30px; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#3a4d3c; border-bottom:1px solid rgba(58,77,60,0.4); padding-bottom:3px;" style-hover="color:#8fa389;">Meet the team →</button>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section style="background:#f2efe4; border-top:1px solid rgba(58,77,60,0.12);">
+        <div style="max-width:900px; margin:0 auto; padding:96px 40px; text-align:center;">
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:56px; line-height:1.05; color:#2c3a2e;">Let's build your people strategy.</h2>
+          <p style="margin-top:20px; font-size:17px; line-height:1.7; color:#5b6157; font-weight:300; max-width:520px; margin-left:auto; margin-right:auto;">Book a free consultation and we'll map out where IPS can make the biggest difference for your team.</p>
+          <button onClick="{{ goContact }}" style="margin-top:34px; padding:16px 36px; background:#3a4d3c; color:#f7f5ed; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; border-radius:2px;" style-hover="background:#2c3a2e;">Book a Consultation</button>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+
+    <!-- ===================== SERVICES ===================== -->
+    <sc-if value="{{ isServices }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <section style="max-width:1240px; margin:0 auto; padding:88px 40px 60px;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
+          <span style="width:34px; height:1px; background:#8fa389;"></span>
+          <span style="font-size:11px; letter-spacing:3.5px; text-transform:uppercase; color:#8fa389;">Services</span>
+        </div>
+        <h1 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:66px; line-height:1.03; letter-spacing:-1px; color:#2c3a2e; max-width:800px;">End-to-end HR &amp; Talent, tailored to your stage.</h1>
+        <p style="margin-top:24px; font-size:18px; line-height:1.7; color:#5b6157; font-weight:300; max-width:560px;">Pick a single service or hand us the whole function. Either way, you get senior expertise and systems that scale with you.</p>
+      </section>
+      <section style="max-width:1240px; margin:0 auto; padding:20px 40px 100px;">
+        <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:rgba(58,77,60,0.12); border:1px solid rgba(58,77,60,0.12);">
+          <sc-for list="{{ services }}" as="s" hint-placeholder-count="8">
+            <div style="background:#f7f5ed; padding:44px 40px; display:flex; gap:26px;" style-hover="background:#fdfcf6;">
+              <span style="font-family:'Cormorant Garamond',serif; font-size:30px; color:#8fa389; line-height:1;">{{ s.num }}</span>
+              <div>
+                <h3 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:30px; color:#2c3a2e;">{{ s.title }}</h3>
+                <p style="margin-top:12px; font-size:15.5px; line-height:1.7; color:#5b6157; font-weight:300;">{{ s.blurb }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+      <section style="background:#2c3a2e;">
+        <div style="max-width:900px; margin:0 auto; padding:84px 40px; text-align:center;">
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:46px; color:#f7f5ed;">Not sure where to start?</h2>
+          <p style="margin-top:16px; font-size:16px; color:#c3cdba; font-weight:300;">We'll help you prioritize. Book a consultation and we'll build a roadmap together.</p>
+          <button onClick="{{ goContact }}" style="margin-top:30px; padding:15px 32px; background:#f7f5ed; color:#2c3a2e; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; border-radius:2px;" style-hover="background:#e6e3d7;">Book a Consultation</button>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+
+    <!-- ===================== ABOUT ===================== -->
+    <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <section style="max-width:1240px; margin:0 auto; padding:88px 40px 70px; display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center;">
+        <div>
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
+            <span style="width:34px; height:1px; background:#8fa389;"></span>
+            <span style="font-size:11px; letter-spacing:3.5px; text-transform:uppercase; color:#8fa389;">About IPS</span>
+          </div>
+          <h1 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:60px; line-height:1.04; letter-spacing:-1px; color:#2c3a2e;">Big-firm expertise, boutique attention.</h1>
+          <p style="margin-top:24px; font-size:17px; line-height:1.75; color:#5b6157; font-weight:300;">Innovative People Solutions was founded on a simple belief: growing companies deserve a real HR partner, not a help desk. We're a small, senior team that plugs directly into your business — bringing the systems, judgment, and care of a full HR department without the headcount.</p>
+          <p style="margin-top:18px; font-size:17px; line-height:1.75; color:#5b6157; font-weight:300;">From your first hire to your first audit, we handle the people work so you can focus on the business.</p>
+        </div>
+        <div style="aspect-ratio:4/5; border-radius:4px; background:repeating-linear-gradient(135deg,#e6e3d7,#e6e3d7 11px,#eceadf 11px,#eceadf 22px); border:1px solid rgba(58,77,60,0.14); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;">
+          <span style="width:56px; height:56px; border-radius:50%; border:1px solid rgba(58,77,60,0.3); display:flex; align-items:center; justify-content:center; color:#8fa389; font-size:22px;">✦</span>
+          <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:1px; color:#8a8d7e;">founder / team portrait</span>
+        </div>
+      </section>
+
+      <!-- VALUES -->
+      <section style="border-top:1px solid rgba(58,77,60,0.12); background:#f2efe4;">
+        <div style="max-width:1240px; margin:0 auto; padding:74px 40px; display:grid; grid-template-columns:repeat(3,1fr); gap:56px;">
+          <sc-for list="{{ values }}" as="v" hint-placeholder-count="3">
+            <div>
+              <span style="font-family:'Cormorant Garamond',serif; font-size:22px; color:#8fa389;">{{ v.num }}</span>
+              <h3 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:28px; color:#2c3a2e; margin-top:10px;">{{ v.title }}</h3>
+              <p style="margin-top:10px; font-size:15px; line-height:1.7; color:#5b6157; font-weight:300;">{{ v.blurb }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <!-- TEAM -->
+      <section style="max-width:1240px; margin:0 auto; padding:96px 40px;">
+        <div style="text-align:center; margin-bottom:60px;">
+          <span style="font-size:11px; letter-spacing:3.5px; text-transform:uppercase; color:#8fa389;">The team</span>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:50px; line-height:1.05; color:#2c3a2e; margin-top:14px;">Three people, deeply invested.</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:48px;">
+          <sc-for list="{{ team }}" as="m" hint-placeholder-count="3">
+            <div style="text-align:center;">
+              <div style="width:150px; height:150px; margin:0 auto; border-radius:50%; background:#dfe4d8; border:1px solid rgba(58,77,60,0.16); display:flex; align-items:center; justify-content:center;">
+                <span style="font-family:'Cormorant Garamond',serif; font-size:46px; color:#3a4d3c;">{{ m.initials }}</span>
+              </div>
+              <h3 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:28px; color:#2c3a2e; margin-top:24px;">{{ m.name }}</h3>
+              <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#8fa389; margin-top:6px;">{{ m.role }}</div>
+              <p style="margin-top:16px; font-size:14.5px; line-height:1.7; color:#5b6157; font-weight:300; max-width:300px; margin-left:auto; margin-right:auto;">{{ m.bio }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+
+    <!-- ===================== CONTACT ===================== -->
+    <sc-if value="{{ isContact }}" hint-placeholder-val="{{ false }}">
+    <div>
+      <section style="max-width:1240px; margin:0 auto; padding:88px 40px 100px; display:grid; grid-template-columns:1fr 1fr; gap:80px;">
+        <div>
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:24px;">
+            <span style="width:34px; height:1px; background:#8fa389;"></span>
+            <span style="font-size:11px; letter-spacing:3.5px; text-transform:uppercase; color:#8fa389;">Get in touch</span>
+          </div>
+          <h1 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:60px; line-height:1.03; letter-spacing:-1px; color:#2c3a2e;">Book a consultation.</h1>
+          <p style="margin-top:22px; font-size:17px; line-height:1.75; color:#5b6157; font-weight:300; max-width:420px;">Tell us a little about your team and where you need help. We'll get back within one business day to set up a free 30-minute call.</p>
+          <div style="margin-top:44px; display:flex; flex-direction:column; gap:22px;">
+            <div>
+              <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#8fa389;">Email</div>
+              <a href="mailto:hello@ips-hr.com" style="font-family:'Cormorant Garamond',serif; font-size:24px; color:#2c3a2e;">hello@ips-hr.com</a>
+            </div>
+            <div>
+              <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#8fa389;">Phone</div>
+              <a href="tel:+15551234567" style="font-family:'Cormorant Garamond',serif; font-size:24px; color:#2c3a2e;">(555) 123-4567</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#fdfcf6; border:1px solid rgba(58,77,60,0.14); border-radius:4px; padding:44px;">
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+            <div style="min-height:420px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:16px;">
+              <span style="width:64px; height:64px; border-radius:50%; background:#dfe4d8; display:flex; align-items:center; justify-content:center; color:#3a4d3c; font-size:28px;">✓</span>
+              <h3 style="font-family:'Cormorant Garamond',serif; font-weight:500; font-size:32px; color:#2c3a2e;">Thank you.</h3>
+              <p style="font-size:15px; line-height:1.7; color:#5b6157; font-weight:300; max-width:280px;">We've received your message and will be in touch within one business day.</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" style="display:flex; flex-direction:column; gap:20px;">
+            <div>
+              <label style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#71766a;">Name</label>
+              <input required type="text" placeholder="Jane Doe" style="width:100%; margin-top:8px; padding:12px 14px; background:#f7f5ed; border:1px solid rgba(58,77,60,0.18); border-radius:2px; font-family:'Jost',sans-serif; font-size:15px; color:#2b332b;">
+            </div>
+            <div>
+              <label style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#71766a;">Company</label>
+              <input type="text" placeholder="Acme Inc." style="width:100%; margin-top:8px; padding:12px 14px; background:#f7f5ed; border:1px solid rgba(58,77,60,0.18); border-radius:2px; font-family:'Jost',sans-serif; font-size:15px; color:#2b332b;">
+            </div>
+            <div>
+              <label style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#71766a;">Email</label>
+              <input required type="email" placeholder="jane@acme.com" style="width:100%; margin-top:8px; padding:12px 14px; background:#f7f5ed; border:1px solid rgba(58,77,60,0.18); border-radius:2px; font-family:'Jost',sans-serif; font-size:15px; color:#2b332b;">
+            </div>
+            <div>
+              <label style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#71766a;">How can we help?</label>
+              <textarea rows="4" placeholder="We're hiring fast and need help with..." style="width:100%; margin-top:8px; padding:12px 14px; background:#f7f5ed; border:1px solid rgba(58,77,60,0.18); border-radius:2px; font-family:'Jost',sans-serif; font-size:15px; color:#2b332b; resize:vertical;"></textarea>
+            </div>
+            <button type="submit" style="margin-top:6px; padding:15px; background:#3a4d3c; color:#f7f5ed; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; border-radius:2px;" style-hover="background:#2c3a2e;">Send Message</button>
+          </form>
+          </sc-if>
+        </div>
+      </section>
+    </div>
+    </sc-if>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer style="background:#2c3a2e; color:#c3cdba;">
+    <div style="max-width:1240px; margin:0 auto; padding:64px 40px 40px;">
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:48px; padding-bottom:48px; border-bottom:1px solid rgba(255,255,255,0.12);">
+        <div>
+          <div style="display:inline-flex; background:#e0ddd0; border-radius:6px; padding:14px; margin-bottom:20px;">
+            <img src="assets/ips-logo.png" alt="Innovative People Solutions" style="width:132px; height:auto; display:block;">
+          </div>
+          <p style="font-size:14.5px; line-height:1.7; color:#a7b8a0; font-weight:300; max-width:300px;">Your end-to-end HR &amp; Talent partner. People are the strategy.</p>
+        </div>
+        <div>
+          <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#8fa389; margin-bottom:18px;">Explore</div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <button onClick="{{ goHome }}" style="text-align:left; font-size:14.5px; color:#c3cdba; font-weight:300;" style-hover="color:#f7f5ed;">Home</button>
+            <button onClick="{{ goServices }}" style="text-align:left; font-size:14.5px; color:#c3cdba; font-weight:300;" style-hover="color:#f7f5ed;">Services</button>
+            <button onClick="{{ goAbout }}" style="text-align:left; font-size:14.5px; color:#c3cdba; font-weight:300;" style-hover="color:#f7f5ed;">About</button>
+            <button onClick="{{ goContact }}" style="text-align:left; font-size:14.5px; color:#c3cdba; font-weight:300;" style-hover="color:#f7f5ed;">Contact</button>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px; letter-spacing:2px; text-transform:uppercase; color:#8fa389; margin-bottom:18px;">Contact</div>
+          <div style="display:flex; flex-direction:column; gap:12px;">
+            <a href="mailto:hello@ips-hr.com" style="font-size:14.5px; color:#c3cdba; font-weight:300;">hello@ips-hr.com</a>
+            <a href="tel:+15551234567" style="font-size:14.5px; color:#c3cdba; font-weight:300;">(555) 123-4567</a>
+          </div>
+        </div>
+      </div>
+      <div style="padding-top:28px; display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap;">
+        <span style="font-size:12.5px; color:#8a9683;">© {{ year }} Innovative People Solutions. All rights reserved.</span>
+        <span style="font-size:12.5px; color:#8a9683;">HR &amp; Talent, end to end.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { page: 'home', sent: false };
+
+  go(p) {
+    return () => {
+      this.setState({ page: p });
+      if (typeof window !== 'undefined') window.scrollTo({ top: 0, behavior: 'auto' });
+    };
+  }
+
+  navStyle(active) {
+    return {
+      padding: '8px 14px',
+      fontSize: '12px',
+      letterSpacing: '1.5px',
+      textTransform: 'uppercase',
+      color: active ? '#3a4d3c' : '#71766a',
+      borderBottom: active ? '1px solid #8fa389' : '1px solid transparent',
+      transition: 'color .2s',
+    };
+  }
+
+  renderVals() {
+    const page = this.state.page;
+    const services = [
+      { num: '01', title: 'HR Advisory & Coaching', blurb: 'Strategic guidance and leadership coaching that scales alongside your business.' },
+      { num: '02', title: 'Compliance', blurb: 'Stay audit-ready with airtight policies, handbooks, and up-to-date regulatory expertise.' },
+      { num: '03', title: 'Recruiting & Talent', blurb: 'Attract, assess, and hire the people who move your company forward.' },
+      { num: '04', title: 'Employee Engagement', blurb: 'Build a culture people stay for, informed by real feedback and data.' },
+      { num: '05', title: 'Payroll', blurb: 'Accurate, on-time payroll without the administrative headache.' },
+      { num: '06', title: 'Benefits', blurb: 'Design and manage benefits programs that compete for top talent.' },
+      { num: '07', title: 'HR Infrastructure', blurb: 'Systems, processes, and tools that make people operations effortless.' },
+      { num: '08', title: 'Onboarding & Offboarding', blurb: 'Seamless transitions that protect your brand and respect your people.' },
+    ];
+    const clients = [
+      { name: 'DNAM Brands', src: 'assets/client-dnam.png' },
+      { name: 'MHI', src: 'assets/client-mhi.jpg' },
+      { name: 'Peak Companies', src: 'assets/client-peak.png' },
+      { name: 'martie', src: 'assets/client-martie.png' },
+      { name: 'coco', src: 'assets/client-coco.png' },
+    ];
+    const values = [
+      { num: '01', title: 'Partners, not vendors', blurb: 'We embed with your leadership and learn the business before we recommend anything.' },
+      { num: '02', title: 'Senior by default', blurb: 'You work directly with experienced practitioners — no hand-offs to junior staff.' },
+      { num: '03', title: 'Built to scale', blurb: 'Everything we set up is designed to grow with you, from first hire to hundredth.' },
+    ];
+    const team = [
+      { initials: 'AM', name: 'Alexandra Moore', role: 'Founder & Principal', bio: 'Twenty years across HR strategy, compliance, and total rewards for high-growth companies.' },
+      { initials: 'JR', name: 'Jordan Rivera', role: 'HR Business Partner', bio: 'Coaches leaders and builds the people programs that keep teams engaged and growing.' },
+      { initials: 'SC', name: 'Sam Chen', role: 'Talent & Recruiting Lead', bio: 'Runs full-cycle recruiting and employer branding that lands standout hires.' },
+    ];
+
+    const navItems = [
+      { label: 'Home', onClick: this.go('home'), style: this.navStyle(page === 'home') },
+      { label: 'Services', onClick: this.go('services'), style: this.navStyle(page === 'services') },
+      { label: 'About', onClick: this.go('about'), style: this.navStyle(page === 'about') },
+      { label: 'Contact', onClick: this.go('contact'), style: this.navStyle(page === 'contact') },
+    ];
+
+    return {
+      page,
+      isHome: page === 'home',
+      isServices: page === 'services',
+      isAbout: page === 'about',
+      isContact: page === 'contact',
+      goHome: this.go('home'),
+      goServices: this.go('services'),
+      goAbout: this.go('about'),
+      goContact: this.go('contact'),
+      navItems,
+      services,
+      servicesPreview: services.slice(0, 6),
+      clients,
+      values,
+      team,
+      sent: this.state.sent,
+      notSent: !this.state.sent,
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); },
+      year: new Date().getFullYear(),
+    };
+  }
+}
+</script>
+</body>
+</html>
