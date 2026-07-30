@@ -46,7 +46,9 @@ export const clients = [
   { name: 'MHI', src: '/assets/client-mhi.jpg' },
   { name: 'Peak Companies', src: '/assets/client-peak.png' },
   { name: 'martie', src: '/assets/client-martie.png' },
-  { name: 'coco', src: '/assets/client-coco.png' },
+  { name: 'Coco Robotics', src: '/assets/client-coco.png' },
+  { name: 'Westime', src: '/assets/client-westime.png' },
+  { name: 'Noesis', src: '/assets/client-noesis.jpg' },
 ];
 
 export const values = [
