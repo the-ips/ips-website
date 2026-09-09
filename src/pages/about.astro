@@ -7,12 +7,12 @@ import { values, team } from '../data/content';
 
 <Layout title="About" description="Big-firm expertise, boutique attention — meet the IPS team.">
   <section class="container about-intro">
-    <div>
-      <div class="eyebrow">
-        <span class="eyebrow-rule"></span>
-        <span class="eyebrow-label">About IPS</span>
-      </div>
-      <h1 class="about-h1">Big-firm expertise, boutique attention.</h1>
+    <div class="eyebrow">
+      <span class="eyebrow-rule"></span>
+      <span class="eyebrow-label">About IPS</span>
+    </div>
+    <h1 class="about-h1">Big-firm expertise, boutique attention.</h1>
+    <div class="about-copy">
       <p class="about-p">
         Innovative People Solutions was founded on a simple belief: growing companies
         deserve a real HR partner, not a help desk. We're a small, senior team that
@@ -23,15 +23,6 @@ import { values, team } from '../data/content';
         From your first hire to your first audit, we handle the people work so you
         can focus on the business.
       </p>
-    </div>
-    <div class="about-photo-frame">
-      <img
-        src="/assets/team-founders.webp"
-        alt="The IPS founder and team standing together in the office"
-        class="about-photo"
-        width="1090"
-        height="1592"
-      />
     </div>
   </section>
 
@@ -60,41 +51,33 @@ import { values, team } from '../data/content';
 
 <style>
   .about-intro {
-    padding: 88px 40px 70px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 72px;
-    align-items: center;
+    padding: 88px 40px 76px;
   }
   .about-h1 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
-    font-size: 60px;
+    font-size: 66px;
     line-height: 1.04;
     letter-spacing: -1px;
     color: var(--green-deep);
+    max-width: 780px;
+  }
+  .about-copy {
+    margin-top: 36px;
+    column-count: 2;
+    column-gap: 48px;
+    max-width: 920px;
+    padding-top: 32px;
+    border-top: 1px solid var(--hairline);
   }
   .about-p {
-    margin-top: 24px;
     font-size: 17px;
     line-height: 1.75;
     color: var(--text-body);
     font-weight: 300;
   }
   .about-p + .about-p {
-    margin-top: 18px;
-  }
-  .about-photo-frame {
-    width: 100%;
-    aspect-ratio: 4 / 5;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .about-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: scale(1.06);
+    margin-top: 20px;
   }
 
   .values-band {
@@ -131,12 +114,15 @@ import { values, team } from '../data/content';
 
   @media (max-width: 900px) {
     .about-intro {
-      grid-template-columns: 1fr;
-      gap: 40px;
-      padding: 64px 24px 56px;
+      padding: 64px 24px 48px;
     }
     .about-h1 {
       font-size: 40px;
+    }
+    .about-copy {
+      column-count: 1;
+      margin-top: 28px;
+      padding-top: 24px;
     }
     .values-grid {
       grid-template-columns: 1fr;
