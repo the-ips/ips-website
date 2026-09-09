@@ -24,13 +24,15 @@ import { values, team } from '../data/content';
         can focus on the business.
       </p>
     </div>
-    <img
-      src="/assets/team-founders.webp"
-      alt="The IPS founder and team standing together in the office"
-      class="about-photo"
-      width="1090"
-      height="1592"
-    />
+    <div class="about-photo-frame">
+      <img
+        src="/assets/team-founders.webp"
+        alt="The IPS founder and team standing together in the office"
+        class="about-photo"
+        width="1090"
+        height="1592"
+      />
+    </div>
   </section>
 
   <!-- VALUES -->
@@ -82,12 +84,17 @@ import { values, team } from '../data/content';
   .about-p + .about-p {
     margin-top: 18px;
   }
+  .about-photo-frame {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 4px;
+    overflow: hidden;
+  }
   .about-photo {
     width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 5;
+    height: 100%;
     object-fit: cover;
-    border-radius: 4px;
+    transform: scale(1.06);
   }
 
   .values-band {

@@ -26,13 +26,15 @@ const servicesPreview = services.slice(0, 6);
         <a href="/services" class="link-arrow">Explore Services →</a>
       </div>
     </div>
-    <img
-      src="/assets/team-office.webp"
-      alt="The IPS team meeting around a table"
-      class="hero-photo"
-      width="2000"
-      height="1300"
-    />
+    <div class="hero-photo-frame">
+      <img
+        src="/assets/team-office.webp"
+        alt="The IPS team meeting around a table"
+        class="hero-photo"
+        width="2000"
+        height="1300"
+      />
+    </div>
   </section>
 
   <!-- STAT STRIP -->
@@ -83,13 +85,15 @@ const servicesPreview = services.slice(0, 6);
 
   <!-- APPROACH -->
   <section class="container approach">
-    <img
-      src="/assets/team-candid.webp"
-      alt="An IPS team member speaking during a meeting"
-      class="approach-photo"
-      width="2000"
-      height="1318"
-    />
+    <div class="approach-photo-frame">
+      <img
+        src="/assets/team-candid.webp"
+        alt="An IPS team member speaking during a meeting"
+        class="approach-photo"
+        width="2000"
+        height="1318"
+      />
+    </div>
     <div>
       <span class="eyebrow-label">Our approach</span>
       <h2 class="section-h2 approach-h2">A boutique team<br />with enterprise range.</h2>
@@ -146,12 +150,17 @@ const servicesPreview = services.slice(0, 6);
     gap: 20px;
     flex-wrap: wrap;
   }
+  .hero-photo-frame {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+    overflow: hidden;
+  }
   .hero-photo {
     width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
+    height: 100%;
     object-fit: cover;
-    border-radius: 4px;
+    transform: scale(1.05);
   }
 
   .stat-strip {
@@ -243,12 +252,17 @@ const servicesPreview = services.slice(0, 6);
     gap: 72px;
     align-items: center;
   }
+  .approach-photo-frame {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 4px;
+    overflow: hidden;
+  }
   .approach-photo {
     width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
+    height: 100%;
     object-fit: cover;
-    border-radius: 4px;
+    transform: scale(1.05);
   }
   .approach-h2 {
     font-size: 48px;
