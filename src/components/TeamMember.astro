@@ -4,14 +4,15 @@ interface Props {
   name: string;
   role: string;
   bio: string;
+  photo?: string;
 }
 
-const { initials, name, role, bio } = Astro.props;
+const { initials, name, role, bio, photo } = Astro.props;
 ---
 
 <div class="team-member">
   <div class="team-avatar">
-    <span>{initials}</span>
+    {photo ? <img src={photo} alt={name} /> : <span>{initials}</span>}
   </div>
   <h3 class="team-name">{name}</h3>
   <div class="team-role">{role}</div>
@@ -32,11 +33,18 @@ const { initials, name, role, bio } = Astro.props;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
   }
   .team-avatar span {
     font-family: 'Cormorant Garamond', serif;
     font-size: 46px;
     color: var(--green);
+  }
+  .team-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
   }
   .team-name {
     font-family: 'Cormorant Garamond', serif;

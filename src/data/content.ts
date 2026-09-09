@@ -71,22 +71,25 @@ export const values = [
 
 export const team = [
   {
-    initials: 'AM',
-    name: 'Alexandra Moore',
-    role: 'Founder & Principal',
-    bio: 'Twenty years across HR strategy, compliance, and total rewards for high-growth companies.',
-  },
-  {
-    initials: 'JR',
-    name: 'Jordan Rivera',
-    role: 'HR Business Partner',
-    bio: 'Coaches leaders and builds the people programs that keep teams engaged and growing.',
-  },
-  {
     initials: 'SC',
-    name: 'Sam Chen',
-    role: 'Talent & Recruiting Lead',
-    bio: 'Runs full-cycle recruiting and employer branding that lands standout hires.',
+    name: 'Sheerly Cohen',
+    role: 'Founder',
+    bio: 'Leads IPS’s HR and Talent strategy for growing companies.',
+    photo: '/assets/team-sheerly.webp',
+  },
+  {
+    initials: 'TY',
+    name: 'Tej Yenamandra',
+    role: 'HR Consultant',
+    bio: 'Partners with clients on HR strategy, compliance, and people operations.',
+    photo: '/assets/team-tej.webp',
+  },
+  {
+    initials: 'GS',
+    name: 'Gianna Sotere',
+    role: 'HR & Recruiting Lead',
+    bio: 'Leads recruiting and HR operations to help clients hire and retain great people.',
+    photo: '/assets/team-gianna.webp',
   },
 ];
 
