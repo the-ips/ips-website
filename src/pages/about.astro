@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Placeholder from '../components/Placeholder.astro';
 import ValueCard from '../components/ValueCard.astro';
 import TeamMember from '../components/TeamMember.astro';
 import { values, team } from '../data/content';
@@ -25,7 +24,13 @@ import { values, team } from '../data/content';
         can focus on the business.
       </p>
     </div>
-    <Placeholder caption="founder / team portrait" aspect="4 / 5" />
+    <img
+      src="/assets/team-founders.webp"
+      alt="The IPS founder and team standing together in the office"
+      class="about-photo"
+      width="1090"
+      height="1592"
+    />
   </section>
 
   <!-- VALUES -->
@@ -76,6 +81,13 @@ import { values, team } from '../data/content';
   }
   .about-p + .about-p {
     margin-top: 18px;
+  }
+  .about-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 4px;
   }
 
   .values-band {
