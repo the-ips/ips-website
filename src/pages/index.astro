@@ -1,6 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Placeholder from '../components/Placeholder.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import ClientLogo from '../components/ClientLogo.astro';
 import { services, clients } from '../data/content';
@@ -27,7 +26,13 @@ const servicesPreview = services.slice(0, 6);
         <a href="/services" class="link-arrow">Explore Services →</a>
       </div>
     </div>
-    <Placeholder caption="team / office photo" aspect="4 / 5" />
+    <img
+      src="/assets/team-office.webp"
+      alt="The IPS team meeting around a table"
+      class="hero-photo"
+      width="2000"
+      height="1300"
+    />
   </section>
 
   <!-- STAT STRIP -->
@@ -78,7 +83,13 @@ const servicesPreview = services.slice(0, 6);
 
   <!-- APPROACH -->
   <section class="container approach">
-    <Placeholder caption="candid team photo" aspect="1 / 1" />
+    <img
+      src="/assets/team-candid.webp"
+      alt="An IPS team member speaking during a meeting"
+      class="approach-photo"
+      width="2000"
+      height="1318"
+    />
     <div>
       <span class="eyebrow-label">Our approach</span>
       <h2 class="section-h2 approach-h2">A boutique team<br />with enterprise range.</h2>
@@ -134,6 +145,13 @@ const servicesPreview = services.slice(0, 6);
     align-items: center;
     gap: 20px;
     flex-wrap: wrap;
+  }
+  .hero-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 4px;
   }
 
   .stat-strip {
@@ -224,6 +242,13 @@ const servicesPreview = services.slice(0, 6);
     grid-template-columns: 0.9fr 1.1fr;
     gap: 72px;
     align-items: center;
+  }
+  .approach-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 4px;
   }
   .approach-h2 {
     font-size: 48px;
