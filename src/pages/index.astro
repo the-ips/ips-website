@@ -5,6 +5,11 @@ import ClientLogo from '../components/ClientLogo.astro';
 import { services, clients } from '../data/content';
 
 const servicesPreview = services.slice(0, 6);
+
+// Repeated enough times that one full set is wider than any realistic
+// viewport — otherwise the seamless -50% loop runs out of content
+// mid-scroll and shows bare background.
+const tickerLogos = Array(8).fill(clients).flat();
 ---
 
 <Layout title="Home" description="Innovative People Solutions — your end-to-end HR & Talent partner. People are the strategy.">
@@ -78,10 +83,7 @@ const servicesPreview = services.slice(0, 6);
     </div>
     <div class="clients-ticker">
       <div class="clients-track">
-        {clients.map((c) => (
-          <ClientLogo name={c.name} src={c.src} />
-        ))}
-        {clients.map((c) => (
+        {tickerLogos.map((c) => (
           <ClientLogo name={c.name} src={c.src} />
         ))}
       </div>
@@ -269,7 +271,10 @@ const servicesPreview = services.slice(0, 6);
       transform: translateX(0);
     }
     to {
-      transform: translateX(-50%);
+      /* one eighth of the track = exactly one copy of the logo set, since
+         tickerLogos repeats it 8x - shifting by that distance loops
+         seamlessly back to an identical-looking frame */
+      transform: translateX(calc(-100% / 8));
     }
   }
   @media (prefers-reduced-motion: reduce) {
