@@ -42,12 +42,12 @@ export const services = [
 ];
 
 export const clients = [
-  { name: 'DNAM Brands', src: '/assets/client-dnam.png' },
+  { name: 'DNAM Brands', src: '/assets/client-dnam-v2.png' },
   { name: 'MHI', src: '/assets/client-mhi.png' },
-  { name: 'Peak Companies', src: '/assets/client-peak.png' },
-  { name: 'martie', src: '/assets/client-martie.png' },
-  { name: 'Coco Robotics', src: '/assets/client-coco.png' },
-  { name: 'Westime', src: '/assets/client-westime.png' },
+  { name: 'Peak Companies', src: '/assets/client-peak-v2.png' },
+  { name: 'martie', src: '/assets/client-martie-v2.png' },
+  { name: 'Coco Robotics', src: '/assets/client-coco-v2.png' },
+  { name: 'Westime', src: '/assets/client-westime-v2.png' },
   { name: 'Noesis', src: '/assets/client-noesis.png' },
 ];
 
