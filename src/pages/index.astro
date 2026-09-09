@@ -75,7 +75,12 @@ const servicesPreview = services.slice(0, 6);
   <section class="clients-band">
     <div class="container clients-inner">
       <span class="eyebrow-label">Trusted by teams at</span>
-      <div class="clients-row">
+    </div>
+    <div class="clients-ticker">
+      <div class="clients-track">
+        {clients.map((c) => (
+          <ClientLogo name={c.name} src={c.src} />
+        ))}
         {clients.map((c) => (
           <ClientLogo name={c.name} src={c.src} />
         ))}
@@ -228,21 +233,49 @@ const servicesPreview = services.slice(0, 6);
   .clients-band {
     background: var(--green-deep);
     color: #e9e7db;
+    padding: 74px 0;
+    overflow: hidden;
   }
   .clients-inner {
-    padding: 74px 40px;
     text-align: center;
   }
   .clients-inner .eyebrow-label {
     color: var(--footer-muted);
   }
-  .clients-row {
+  .clients-ticker {
     margin-top: 44px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+  .clients-track {
+    width: max-content;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
-    justify-content: center;
-    gap: 26px;
+    gap: 72px;
+    animation: clients-scroll 26s linear infinite;
+  }
+  .clients-ticker:hover .clients-track {
+    animation-play-state: paused;
+  }
+  @keyframes clients-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .clients-track {
+      animation: none;
+    }
   }
 
   .approach {
@@ -345,8 +378,11 @@ const servicesPreview = services.slice(0, 6);
     .service-grid {
       grid-template-columns: 1fr;
     }
-    .clients-inner {
-      padding: 56px 24px;
+    .clients-band {
+      padding: 56px 0;
+    }
+    .clients-track {
+      gap: 48px;
     }
     .approach {
       grid-template-columns: 1fr;

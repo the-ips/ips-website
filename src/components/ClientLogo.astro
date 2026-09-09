@@ -7,24 +7,15 @@ interface Props {
 const { name, src } = Astro.props;
 ---
 
-<div class="client-card">
-  <img src={src} alt={name} />
-</div>
+<img src={src} alt={name} class="client-logo" />
 
 <style>
-  .client-card {
-    width: 180px;
-    height: 96px;
-    background: var(--bg);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-  }
-  .client-card img {
-    max-width: 100%;
-    max-height: 100%;
+  .client-logo {
+    height: 30px;
+    width: auto;
+    max-width: 160px;
     object-fit: contain;
+    flex-shrink: 0;
+    opacity: 0.92;
   }
 </style>
