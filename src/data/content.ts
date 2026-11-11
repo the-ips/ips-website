@@ -69,30 +69,6 @@ export const values = [
   },
 ];
 
-export const team = [
-  {
-    initials: 'SC',
-    name: 'Sheerly Cohen',
-    role: 'Founder',
-    bio: 'Leads IPS’s HR and Talent strategy for growing companies.',
-    photo: '/assets/team-sheerly.webp',
-  },
-  {
-    initials: 'TY',
-    name: 'Tej Yenamandra',
-    role: 'HR Consultant',
-    bio: 'Partners with clients on HR strategy, compliance, and people operations.',
-    photo: '/assets/team-tej.webp',
-  },
-  {
-    initials: 'GS',
-    name: 'Gianna Sotere',
-    role: 'HR & Recruiting Lead',
-    bio: 'Leads recruiting and HR operations to help clients hire and retain great people.',
-    photo: '/assets/team-gianna.webp',
-  },
-];
-
 export const contact = {
   email: 'sheerly@theips.us',
 };

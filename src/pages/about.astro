@@ -1,11 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ValueCard from '../components/ValueCard.astro';
-import TeamMember from '../components/TeamMember.astro';
-import { values, team } from '../data/content';
+import { values } from '../data/content';
 ---
 
-<Layout title="About" description="Big-firm expertise, boutique attention — meet the IPS team.">
+<Layout title="About" description="Big-firm expertise, boutique attention.">
   <section class="container about-intro">
     <div class="eyebrow">
       <span class="eyebrow-rule"></span>
@@ -31,19 +30,6 @@ import { values, team } from '../data/content';
     <div class="container values-grid">
       {values.map((v) => (
         <ValueCard num={v.num} title={v.title} blurb={v.blurb} />
-      ))}
-    </div>
-  </section>
-
-  <!-- TEAM -->
-  <section class="container team-section">
-    <div class="team-head">
-      <span class="eyebrow-label">The team</span>
-      <h2 class="team-h2">Three people, deeply invested.</h2>
-    </div>
-    <div class="team-grid">
-      {team.map((m) => (
-        <TeamMember initials={m.initials} name={m.name} role={m.role} bio={m.bio} photo={m.photo} />
       ))}
     </div>
   </section>
